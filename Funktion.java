@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Funktion {
-    ArrayList<Double> formularValues = new ArrayList<Double>();
+    ArrayList<Double> formularValues = new ArrayList<>();
     int formularGrade;
 
     //Konstrucktor für Funktionen
