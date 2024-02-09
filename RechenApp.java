@@ -40,6 +40,9 @@ public class RechenApp {
 
     private static void getNullstelle(){
 
+
+
+
     }
 
     private static int inputInt(String info) {
