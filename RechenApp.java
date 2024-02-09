@@ -4,11 +4,25 @@ import java.util.Scanner;
 public class RechenApp {
     public static void main(String[] args) {
 
-        ableitungsFunktion();
+        int choice = inputInt("Rechnerfunktionen: 1) Auflösung nach x 2) Ableitung 3) Nullstelle nach Newton");
+
+        switch (choice) {
+            case 1:
+                System.out.println(getYFunktion());
+                break;
+            case 2:
+                System.out.println(ableitungsFunktion());
+                break;
+            case 3:
+                System.out.println(getNullstelle());
+                break;
+            default:
+                System.out.println("Bitte gebe eine Korrekte Funktion an");
+        }
 
     }
 
-    private static Funktion funktionsAbfrage(){
+    private static Funktion funktionsAbfrage() {
         ArrayList<Double> values = new ArrayList<>();
 
         int grad = inputInt("Welchen Grad hat deine Funktion?");
@@ -22,27 +36,21 @@ public class RechenApp {
         return funktion;
     }
 
-    private static void ableitungsFunktion(){
-
+    private static String ableitungsFunktion() {
         Funktion funktion = funktionsAbfrage();
-
-        System.out.println(funktion.ableitung().getFormularAsString());
-
+        return funktion.ableitung().getFormularAsString();
     }
 
-    private static void getYFunktion(){
+    private static double getYFunktion() {
         Funktion funktion = funktionsAbfrage();
-
         double x = inputDouble("Bitte gebe X an:");
-
-        System.out.println(funktion.getY(x));
+        return funktion.getY(x);
     }
 
-    private static void getNullstelle(){
-
-
-
-
+    private static double getNullstelle() {
+        Funktion funktion = funktionsAbfrage();
+        Naerungsverfahren nullstelle = new Naerungsverfahren(funktion);
+        return nullstelle.getNullstelle();
     }
 
     private static int inputInt(String info) {

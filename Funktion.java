@@ -48,7 +48,6 @@ public class Funktion {
                 output += "a" + i;
             }
             output = buildStringFormular(output, i);
-
         }
         return output;
     }
