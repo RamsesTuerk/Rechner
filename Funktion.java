@@ -18,11 +18,8 @@ public class Funktion {
     //Rückgabe der Funktion als String für die Ausgabe
     public String getFormularAsString() {
         String output = "";
-
         for (int i = 0; i < formularValues.size(); i++) {
-
             if (formularValues.get(i) != 0) {
-
                 if (i > 0 && formularValues.get(i) < 0) {
                     output += " ";
                     output += formularValues.get(i);
@@ -75,7 +72,6 @@ public class Funktion {
             y += formularValues.get(j) * (Math.pow(x, formularGrade - j));
         }
         y += formularValues.getLast();
-
         return y;
     }
 
