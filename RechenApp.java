@@ -3,6 +3,12 @@ import java.util.Scanner;
 
 public class RechenApp {
     public static void main(String[] args) {
+
+        ableitungsFunktion();
+
+    }
+
+    private static Funktion funktionsAbfrage(){
         ArrayList<Double> values = new ArrayList<>();
 
         int grad = inputInt("Welchen Grad hat deine Funktion?");
@@ -12,11 +18,28 @@ public class RechenApp {
             values.add(inputDouble("a" + i + ":"));
         }
         Funktion funktion = new Funktion(grad, values);
-        System.out.println("Formel: " + funktion.getFormularAsString());
-        Funktion ableitung = funktion.ableitung();
-        System.out.println("Ableitung: " + ableitung.getFormularAsString());
-        Naerungsverfahren obj = new Naerungsverfahren(funktion);
-        System.out.println("Nullstelle: " + obj.getNullstelle());
+        System.out.println("Deine Funktion: " + funktion.getFormularAsString());
+        return funktion;
+    }
+
+    private static void ableitungsFunktion(){
+
+        Funktion funktion = funktionsAbfrage();
+
+        System.out.println(funktion.ableitung().getFormularAsString());
+
+    }
+
+    private static void getYFunktion(){
+        Funktion funktion = funktionsAbfrage();
+
+        double x = inputDouble("Bitte gebe X an:");
+
+        System.out.println(funktion.getY(x));
+    }
+
+    private static void getNullstelle(){
+
     }
 
     private static int inputInt(String info) {
