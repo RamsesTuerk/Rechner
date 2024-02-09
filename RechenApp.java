@@ -19,9 +19,9 @@ public class RechenApp {
             default:
                 System.out.println("Bitte gebe eine Korrekte Funktion an");
         }
-
     }
 
+    //Userinteraktion eingabe einer Funktion
     private static Funktion funktionsAbfrage() {
         ArrayList<Double> values = new ArrayList<>();
 
@@ -36,29 +36,34 @@ public class RechenApp {
         return funktion;
     }
 
+    //Ableiten nach einer Funktion die vom User angegeben wurde
     private static String ableitungsFunktion() {
         Funktion funktion = funktionsAbfrage();
         return funktion.ableitung().getFormularAsString();
     }
 
+    //Auflösen einer Funktion nach Y die vom User angegeben wurde
     private static double getYFunktion() {
         Funktion funktion = funktionsAbfrage();
         double x = inputDouble("Bitte gebe X an:");
         return funktion.getY(x);
     }
 
+    //Errechnung einer Nullstelle von einer Funktion die vom User angegeben wurde
     private static double getNullstelle() {
         Funktion funktion = funktionsAbfrage();
         Naerungsverfahren nullstelle = new Naerungsverfahren(funktion);
         return nullstelle.getNullstelle();
     }
 
+    //Userinput Integer
     private static int inputInt(String info) {
         Scanner scanner = new Scanner(System.in);
         System.out.println(info);
         return scanner.nextInt();
     }
 
+    //Userinput Double
     private static double inputDouble(String info) {
         Scanner scanner = new Scanner(System.in);
         System.out.print(info);

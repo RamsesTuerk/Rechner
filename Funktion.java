@@ -4,15 +4,18 @@ public class Funktion {
     ArrayList<Double> formularValues = new ArrayList<Double>();
     int formularGrade;
 
+    //Konstrucktor für Funktionen
     public Funktion(int grad, ArrayList<Double> werte) {
         this.formularValues = werte;
         this.formularGrade = grad;
     }
 
+    //Konstructor für die Erstellung einer Funktion ohne werte (Ausschließlich für die erstellung einer Beispielfunktion)
     public Funktion(int grad) {
         this.formularGrade = grad;
     }
 
+    //Rückgabe der Funktion als String für die Ausgabe
     public String getFormularAsString() {
         String output = "";
 
@@ -37,6 +40,7 @@ public class Funktion {
         return output;
     }
 
+    // Rückgabe der Beispielfunktion als String für die Ausgabe
     public String getFormularExampleAsString() {
         String output = "";
 
@@ -52,6 +56,7 @@ public class Funktion {
         return output;
     }
 
+    //Zusammenschreiben der Funktion in einem String für die Ausgabe
     private String buildStringFormular(String output, int i) {
         if (i + 1 < formularGrade) {
             output += "x";
@@ -64,6 +69,7 @@ public class Funktion {
         return output;
     }
 
+    //Auflösen der Funktion nach Y
     public double getY(double x) {
         double y = 0;
         for (int j = 0; j < formularGrade; j++) {
@@ -74,6 +80,7 @@ public class Funktion {
         return y;
     }
 
+    //Ableiten der Funktion (Giebt eine Funktion Zurück)
     public Funktion ableitung() {
         ArrayList<Double> ableitungValues = new ArrayList<>();
         int ableitungGrade = formularGrade - 1;

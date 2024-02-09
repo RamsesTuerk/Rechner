@@ -2,11 +2,13 @@ public class Naerungsverfahren {
     Funktion funktion;
     Funktion ableitungsFunktion;
 
+    //Konstrucktor für Das Näherungsverfahren
     public Naerungsverfahren(Funktion funktion) {
         this.funktion = funktion;
         this.ableitungsFunktion = funktion.ableitung();
     }
 
+    //Berechnen der Nullstellen nach dem Newton verfahren
     public double getNullstelle() {
         double x1 = getRandom();
         double x2;
@@ -21,6 +23,7 @@ public class Naerungsverfahren {
         return x1;
     }
 
+    //Rückgabe einer zufälligen Zahl zwischen 0 und 100
     private double getRandom() {
         return Math.round(Math.random() / (1.0 / (100.0 - 1.0)) + 1.0);
     }
