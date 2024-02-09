@@ -64,7 +64,6 @@ public class Funktion {
 
         } else if (i + 1 == formularGrade) {
             output += "x";
-
         }
         return output;
     }
