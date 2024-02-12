@@ -4,20 +4,29 @@ import java.util.Scanner;
 public class RechenApp {
     public static void main(String[] args) {
 
-        int choice = inputInt("Rechnerfunktionen: 1) Auflösung nach x 2) Ableitung 3) Nullstelle nach Newton");
+        boolean run = true;
 
-        switch (choice) {
-            case 1:
-                System.out.println(getYFunktion());
-                break;
-            case 2:
-                System.out.println(ableitungsFunktion());
-                break;
-            case 3:
-                System.out.println(getNullstelle());
-                break;
-            default:
-                System.out.println("Bitte gebe eine Korrekte Funktion an");
+        while (run) {
+
+            int choice = inputInt("Rechnerfunktionen: 1) Auflösung nach x 2) Ableitung 3) Nullstelle nach Newton");
+
+            switch (choice) {
+                case 1:
+                    System.out.println("y = " + getYFunktion());
+                    break;
+                case 2:
+                    System.out.println("1. Ableitung" + ableitungsFunktion());
+                    break;
+                case 3:
+                    System.out.println("Nullstelle: " + getNullstelle());
+                    break;
+                case 4:
+                    System.out.println("Danke fürs nutzen des Programmes");
+                    run = false;
+                    break;
+                default:
+                    System.out.println("Bitte gebe eine Korrekte Funktion an");
+            }
         }
     }
 
