@@ -1,3 +1,5 @@
+package r.tuerk.funktionsrechner;
+
 import java.util.ArrayList;
 
 public class Funktion {
@@ -10,12 +12,12 @@ public class Funktion {
         this.formularGrade = grad;
     }
 
-    //Konstructor für die Erstellung einer Funktion ohne werte (Ausschließlich für die erstellung einer Beispielfunktion)
+    //Konstructor für die Erstellung einer r.tuerk.funktionsrechner.Funktion ohne werte (Ausschließlich für die erstellung einer Beispielfunktion)
     public Funktion(int grad) {
         this.formularGrade = grad;
     }
 
-    //Rückgabe der Funktion als String für die Ausgabe
+    //Rückgabe der r.tuerk.funktionsrechner.Funktion als String für die Ausgabe
     public String getFormularAsString() {
         String output = "";
         for (int i = 0; i < formularValues.size(); i++) {
@@ -53,7 +55,7 @@ public class Funktion {
         return output;
     }
 
-    //Zusammenschreiben der Funktion in einem String für die Ausgabe
+    //Zusammenschreiben der r.tuerk.funktionsrechner.Funktion in einem String für die Ausgabe
     private String buildStringFormular(String output, int i) {
         if (i + 1 < formularGrade) {
             output += "x";
@@ -65,7 +67,7 @@ public class Funktion {
         return output;
     }
 
-    //Auflösen der Funktion nach Y
+    //Auflösen der r.tuerk.funktionsrechner.Funktion nach Y
     public double getY(double x) {
         double y = 0;
         for (int j = 0; j < formularGrade; j++) {
@@ -75,7 +77,7 @@ public class Funktion {
         return y;
     }
 
-    //Ableiten der Funktion (Giebt eine Funktion Zurück)
+    //Ableiten der r.tuerk.funktionsrechner.Funktion (Giebt eine r.tuerk.funktionsrechner.Funktion Zurück)
     public Funktion ableitung() {
         ArrayList<Double> ableitungValues = new ArrayList<>();
         int ableitungGrade = formularGrade - 1;

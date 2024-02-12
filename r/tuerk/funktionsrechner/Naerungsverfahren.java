@@ -1,3 +1,5 @@
+package r.tuerk.funktionsrechner;
+
 public class Naerungsverfahren {
     Funktion funktion;
     Funktion ableitungsFunktion;

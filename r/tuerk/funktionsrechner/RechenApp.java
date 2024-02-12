@@ -1,3 +1,5 @@
+package r.tuerk.funktionsrechner;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,14 +10,14 @@ public class RechenApp {
 
         while (run) {
 
-            int choice = inputInt("Rechnerfunktionen: 1) Auflösung nach x 2) Ableitung 3) Nullstelle nach Newton");
+            int choice = inputInt("Rechnerfunktionen: 1) Auflösung nach y 2) Ableitung 3) Nullstelle nach Newton 4) Exit");
 
             switch (choice) {
                 case 1:
                     System.out.println("y = " + getYFunktion());
                     break;
                 case 2:
-                    System.out.println("1. Ableitung" + ableitungsFunktion());
+                    System.out.println("1. Ableitung: " + ableitungsFunktion());
                     break;
                 case 3:
                     System.out.println("Nullstelle: " + getNullstelle());
@@ -25,40 +27,40 @@ public class RechenApp {
                     run = false;
                     break;
                 default:
-                    System.out.println("Bitte gebe eine Korrekte Funktion an");
+                    System.out.println("Bitte gebe eine Korrekte r.tuerk.funktionsrechner.Funktion an");
             }
         }
     }
 
-    //Userinteraktion eingabe einer Funktion
+    //Userinteraktion eingabe einer r.tuerk.funktionsrechner.Funktion
     private static Funktion funktionsAbfrage() {
         ArrayList<Double> values = new ArrayList<>();
 
-        int grad = inputInt("Welchen Grad hat deine Funktion?");
+        int grad = inputInt("Welchen Grad hat deine r.tuerk.funktionsrechner.Funktion?");
         Funktion exampleFunktion = new Funktion(grad);
         System.out.println(exampleFunktion.getFormularExampleAsString());
         for (int i = 0; i <= grad; i++) {
             values.add(inputDouble("a" + i + ":"));
         }
         Funktion funktion = new Funktion(grad, values);
-        System.out.println("Deine Funktion: " + funktion.getFormularAsString());
+        System.out.println("Deine r.tuerk.funktionsrechner.Funktion: " + funktion.getFormularAsString());
         return funktion;
     }
 
-    //Ableiten nach einer Funktion die vom User angegeben wurde
+    //Ableiten nach einer r.tuerk.funktionsrechner.Funktion die vom User angegeben wurde
     private static String ableitungsFunktion() {
         Funktion funktion = funktionsAbfrage();
         return funktion.ableitung().getFormularAsString();
     }
 
-    //Auflösen einer Funktion nach Y die vom User angegeben wurde
+    //Auflösen einer r.tuerk.funktionsrechner.Funktion nach Y die vom User angegeben wurde
     private static double getYFunktion() {
         Funktion funktion = funktionsAbfrage();
         double x = inputDouble("Bitte gebe X an:");
         return funktion.getY(x);
     }
 
-    //Errechnung einer Nullstelle von einer Funktion die vom User angegeben wurde
+    //Errechnung einer Nullstelle von einer r.tuerk.funktionsrechner.Funktion die vom User angegeben wurde
     private static double getNullstelle() {
         Funktion funktion = funktionsAbfrage();
         Naerungsverfahren nullstelle = new Naerungsverfahren(funktion);
