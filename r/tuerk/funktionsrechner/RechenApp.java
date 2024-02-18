@@ -27,40 +27,40 @@ public class RechenApp {
                     run = false;
                     break;
                 default:
-                    System.out.println("Bitte gebe eine Korrekte r.tuerk.funktionsrechner.Funktion an");
+                    System.out.println("Bitte gebe eine Korrekte Funktion an");
             }
         }
     }
 
-    //Userinteraktion eingabe einer r.tuerk.funktionsrechner.Funktion
+    //Userinteraktion eingabe einer Funktion
     private static Funktion funktionsAbfrage() {
         ArrayList<Double> values = new ArrayList<>();
 
-        int grad = inputInt("Welchen Grad hat deine r.tuerk.funktionsrechner.Funktion?");
+        int grad = inputInt("Welchen Grad hat deine Funktion?");
         Funktion exampleFunktion = new Funktion(grad);
         System.out.println(exampleFunktion.getFormularExampleAsString());
         for (int i = 0; i <= grad; i++) {
             values.add(inputDouble("a" + i + ":"));
         }
         Funktion funktion = new Funktion(grad, values);
-        System.out.println("Deine r.tuerk.funktionsrechner.Funktion: " + funktion.getFormularAsString());
+        System.out.println("Deine Funktion: " + funktion.getFormularAsString());
         return funktion;
     }
 
-    //Ableiten nach einer r.tuerk.funktionsrechner.Funktion die vom User angegeben wurde
+    //Ableiten nach einer Funktion die vom User angegeben wurde
     private static String ableitungsFunktion() {
         Funktion funktion = funktionsAbfrage();
         return funktion.ableitung().getFormularAsString();
     }
 
-    //Auflösen einer r.tuerk.funktionsrechner.Funktion nach Y die vom User angegeben wurde
+    //Auflösen einer Funktion nach Y die vom User angegeben wurde
     private static double getYFunktion() {
         Funktion funktion = funktionsAbfrage();
         double x = inputDouble("Bitte gebe X an:");
         return funktion.getY(x);
     }
 
-    //Errechnung einer Nullstelle von einer r.tuerk.funktionsrechner.Funktion die vom User angegeben wurde
+    //Errechnung einer Nullstelle von einer Funktion die vom User angegeben wurde
     private static double getNullstelle() {
         Funktion funktion = funktionsAbfrage();
         Naerungsverfahren nullstelle = new Naerungsverfahren(funktion);
