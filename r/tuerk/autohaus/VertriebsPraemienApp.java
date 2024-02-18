@@ -2,17 +2,15 @@ package r.tuerk.autohaus;
 
 import java.util.Scanner;
 
-public class VertriebsPrämienApp {
+public class VertriebsPraemienApp {
 
-    //TODO Falsche eingaben verhindern
-
-    private static Geschaeftsliste geschaeftsliste = new Geschaeftsliste();
+    private static final Geschaeftsliste geschaeftsliste = new Geschaeftsliste();
 
     public static void main(String[] args) {
         boolean run = true;
 
         while (run) {
-            int userChoice = inputInt("Was willst du machen? 1) EIn Geschäft hinzufügen 2) Alle Geschäfte anzeigen 3) Das wertvollste Geschäft anzeigen 4) Programm verlassen");
+            int userChoice = awnserCheckInt("Was willst du machen? 1) EIn Geschäft hinzufügen 2) Alle Geschäfte anzeigen 3) Das wertvollste Geschäft anzeigen 4) Programm verlassen",4);
             switch (userChoice) {
                 case 1:
                     geschaeftHinzufuegen();
@@ -27,15 +25,13 @@ public class VertriebsPrämienApp {
                     run = false;
                     System.out.println("Auf Wiedersehen");
                     break;
-                default:
-                    System.out.println("Bitte gebe eine korrekte Nummer an!");
             }
         }
     }
 
     public static void geschaeftHinzufuegen() {
 
-        int geschaeftsart = inputInt("Wurde ein 1) Neuwagen oder ein 2) Gebrauchswagen verkauft?");
+        int geschaeftsart = awnserCheckInt("Wurde ein 1) Neuwagen oder ein 2) Gebrauchswagen verkauft?",2);
 
         if (geschaeftsart == 1) {
             geschaeftsliste.addGescheaft(geschaeftNeuwagenHinzufuegen());
@@ -75,6 +71,22 @@ public class VertriebsPrämienApp {
         String vorname = inputString("Bitte gebe den Vornamen des Vertrieblers an.");
         String nachname = inputString("Bitte geben sie den Nachnamen des Vertrieblers an.");
         return new Person(vorname, nachname);
+    }
+
+    private static int awnserCheckInt(String info, int lastAwnserOpertunity){
+        boolean run = true;
+        int inputInt = 0;
+
+        while (run) {
+            inputInt = inputInt(info);
+            if (inputInt <= lastAwnserOpertunity) {
+                run = false;
+            } else {
+                System.out.println("Bitte geben sie eine Korrekte Zahl ein");
+            }
+        }
+
+        return inputInt;
     }
 
     private static int inputInt(String info) {

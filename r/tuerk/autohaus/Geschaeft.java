@@ -1,8 +1,8 @@
 package r.tuerk.autohaus;
 
 public class Geschaeft {
-    private Person vertriebler;
-    private String kFZZeichen;
+    private final Person vertriebler;
+    private final String kFZZeichen;
     private double wert;
 
     public Geschaeft(Person vertriebler, String kFZZeichen) {

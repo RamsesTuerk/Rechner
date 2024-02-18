@@ -20,10 +20,10 @@ public class Geschaeftsliste {
     }
 
     public String toString() {
-        String output = "";
-        for (int i = 0; i < gescheaftsliste.size(); i++) {
-            output += gescheaftsliste.get(i).toString() + "\n";
+        StringBuilder output = new StringBuilder();
+        for (Geschaeft geschaeft : gescheaftsliste) {
+            output.append(geschaeft.toString()).append("\n");
         }
-        return output;
+        return output.toString();
     }
 }

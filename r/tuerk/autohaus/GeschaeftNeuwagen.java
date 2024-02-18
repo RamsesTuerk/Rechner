@@ -2,8 +2,8 @@ package r.tuerk.autohaus;
 
 public class GeschaeftNeuwagen extends Geschaeft {
 
-    private double listenpreis;
-    private double rabatt;
+    private final double listenpreis;
+    private final double rabatt;
 
     public GeschaeftNeuwagen(Person vertriebler, String kFZZeichen, double listenpreis, double rabatt) {
         super(vertriebler, kFZZeichen);
